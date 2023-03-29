@@ -7,6 +7,7 @@ using System;
 namespace apiToDo.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("[controller]")]
     public class TarefasController : ControllerBase
     {
@@ -16,10 +17,10 @@ namespace apiToDo.Controllers
         {
             try
             {
+                Tarefas tarefas = new Tarefas();
+                var resposta = tarefas.lstTarefas();
 
-
-              
-                return StatusCode(200);
+                return Ok(resposta);
             }
 
             catch (Exception ex)
