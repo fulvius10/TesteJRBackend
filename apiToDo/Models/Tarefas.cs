@@ -7,30 +7,33 @@ namespace apiToDo.Models
 {
     public class Tarefas
     {
+        List<TarefaDTO> listaTarefa = new List<TarefaDTO>();
+        public Tarefas()//construtor
+        {
+            listaTarefa.Add(new TarefaDTO
+            {
+                ID_TAREFA = 1,
+                DS_TAREFA = "Fazer Compras"
+            });
+
+            listaTarefa.Add(new TarefaDTO
+            {
+                ID_TAREFA = 2,
+                DS_TAREFA = "Fazer Atividad Faculdade"
+            });
+
+            listaTarefa.Add(new TarefaDTO
+            {
+                ID_TAREFA = 3,
+                DS_TAREFA = "Subir Projeto de Teste no GitHub"
+            });
+           
+        }
         public List<TarefaDTO> lstTarefas()
         {
             try
             {
-                List<TarefaDTO> lstTarefas = new List<TarefaDTO>();
-
-                lstTarefas.Add(new TarefaDTO
-                {
-                    ID_TAREFA = 1,
-                    DS_TAREFA = "Fazer Compras"
-                });
-
-                lstTarefas.Add(new TarefaDTO
-                {
-                    ID_TAREFA = 2,
-                    DS_TAREFA = "Fazer Atividad Faculdade"
-                });
-
-                lstTarefas.Add(new TarefaDTO
-                {
-                    ID_TAREFA = 3,
-                    DS_TAREFA = "Subir Projeto de Teste no GitHub"
-                });
-               return lstTarefas;
+                return listaTarefa;
             }
             catch (Exception ex)
             {
@@ -45,6 +48,7 @@ namespace apiToDo.Models
             {
                 List<TarefaDTO> lstResponse = lstTarefas();
                 lstResponse.Add(Request);
+
             }
             catch (Exception ex)
             {
