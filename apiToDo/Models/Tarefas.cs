@@ -7,8 +7,9 @@ namespace apiToDo.Models
 {
     public class Tarefas
     {
-        List<TarefaDTO> listaTarefa = new List<TarefaDTO>();
-        public Tarefas()//construtor
+        List<TarefaDTO> listaTarefa = new List<TarefaDTO>();//atribui de maneira global a lista de tarefas do tipo List<TarefaDTO>, de onde se pega os parametros. E a cada vez, por não ter cache e nem banco ele executa corretamente
+        //um metodo dessas funções. lstTarefas, inserir e deletar. E tambem para acessar de maneira global a mesma variavel em dois metodos.
+        public Tarefas()//construtor para adicionar itens a lista de tarefas.
         {
             listaTarefa.Add(new TarefaDTO
             {
