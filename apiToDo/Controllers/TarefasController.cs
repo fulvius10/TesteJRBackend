@@ -13,7 +13,7 @@ namespace apiToDo.Controllers
     {
         [Authorize]
         [HttpPost("lstTarefas")]
-        public ActionResult lstTarefas()
+        public ActionResult lstTarefas()  
         {
             try
             {
@@ -34,8 +34,10 @@ namespace apiToDo.Controllers
         {
             try
             {
-
-                return StatusCode(200);
+                Tarefas tarefas = new Tarefas();
+                tarefas.InserirTarefa(Request);
+                var resposta = tarefas.lstTarefas();
+                return Ok(resposta);
 
 
             }
@@ -51,8 +53,12 @@ namespace apiToDo.Controllers
         {
             try
             {
+                Tarefas tarefas = new Tarefas();
+                tarefas.DeletarTarefa(ID_TAREFA);
+                var resposta = tarefas.lstTarefas();
 
-                return StatusCode(200);
+
+                return Ok(resposta);
             }
 
             catch (Exception ex)
